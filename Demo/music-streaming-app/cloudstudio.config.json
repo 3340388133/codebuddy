@@ -1,0 +1,20 @@
+{
+  "name": "音乐流媒体应用",
+  "description": "一个现代化的音乐流媒体应用，提供音乐播放、播放列表管理和搜索功能",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "environment": {
+    "node": "18.x"
+  },
+  "ports": [
+    {
+      "port": 5173,
+      "name": "开发服务器",
+      "description": "Vite 开发服务器"
+    }
+  ]
+}

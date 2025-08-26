@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐流媒体应用</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>音乐流媒体应用</h1>
+        </header>
+        
+        <main>
+            <div class="player">
+                <div class="album-art">
+                    <img src="assets/album-placeholder.jpg" alt="专辑封面" id="album-cover">
+                </div>
+                
+                <div class="player-controls">
+                    <div class="song-info">
+                        <h2 id="song-title">歌曲标题</h2>
+                        <p id="artist-name">艺术家</p>
+                    </div>
+                    
+                    <div class="progress-bar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    
+                    <div class="controls">
+                        <button id="prev-btn">上一首</button>
+                        <button id="play-btn">播放</button>
+                        <button id="next-btn">下一首</button>
+                        <input type="range" id="volume" min="0" max="1" step="0.1" value="0.7">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="playlist">
+                <h3>播放列表</h3>
+                <ul id="playlist-items">
+                    <!-- 播放列表项将通过 JavaScript 动态添加 -->
+                </ul>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 音乐流媒体应用</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

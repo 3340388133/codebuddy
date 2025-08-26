@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linkly - Shorten Your Loooong Links :)</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="user-system.css">
+    <link rel="stylesheet" href="advanced-features.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1 class="logo">Linkly</h1>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-secondary" id="loginBtn">
+                    <span>Login</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                        <polyline points="10,17 15,12 10,7"/>
+                        <line x1="15" y1="12" x2="3" y2="12"/>
+                    </svg>
+                </button>
+                <button class="btn-primary" id="registerBtn">Register Now</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <!-- 标题区域 -->
+        <section class="hero-section">
+            <h1 class="hero-title">Shorten Your Loooong Links :)</h1>
+            <p class="hero-subtitle">
+                Linkly is an efficient and easy-to-use URL shortening service that streamlines your online experience.
+            </p>
+        </section>
+
+        <!-- URL缩短功能区 -->
+        <section class="url-shortener">
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                    </svg>
+                    <input 
+                        type="url" 
+                        id="urlInput" 
+                        placeholder="Enter the link here"
+                        class="url-input"
+                    >
+                </div>
+                <button class="btn-shorten" id="shortenBtn">Shorten Now!</button>
+            </div>
+            
+            <!-- 自动粘贴提示 -->
+            <div class="auto-paste-info">
+                <div class="auto-paste-toggle">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9 12l2 2 4-4" stroke="white" stroke-width="2" fill="none"/>
+                    </svg>
+                    <span>Auto Paste from Clipboard</span>
+                </div>
+                <div class="usage-info">
+                    <span>You can create <strong>05</strong> more links. <a href="#" id="registerLink">Register Now</a> to enjoy Unlimited usage.</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <path d="M12 17h.01"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- 结果展示区 -->
+        <section class="result-section" id="resultSection" style="display: none;">
+            <div class="result-card">
+                <div class="result-header">
+                    <h3>Your shortened link is ready!</h3>
+                </div>
+                <div class="result-content">
+                    <div class="link-display">
+                        <span id="shortLink">https://linkly.com/Bn41qCOlnq</span>
+                        <button class="btn-copy" id="copyBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                            </svg>
+                            Copy
+                        </button>
+                    </div>
+                    <button class="btn-qr" id="qrBtn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="5" height="5"/>
+                            <rect x="16" y="3" width="5" height="5"/>
+                            <rect x="3" y="16" width="5" height="5"/>
+                            <path d="M21 16h-3a2 2 0 0 0-2 2v3"/>
+                            <path d="M21 21v.01"/>
+                            <path d="M12 7v3a2 2 0 0 1-2 2H7"/>
+                            <path d="M3 12h.01"/>
+                            <path d="M12 3h.01"/>
+                            <path d="M12 16v.01"/>
+                            <path d="M16 12h1"/>
+                            <path d="M21 12v.01"/>
+                            <path d="M12 21v-1"/>
+                        </svg>
+                        QR Code
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 历史记录表格 -->
+        <section class="history-section">
+            <div class="table-header">
+                <div class="table-controls">
+                    <div class="view-controls">
+                        <button class="view-btn active" data-view="table">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="9" y1="9" x2="15" y2="15"/>
+                                <line x1="15" y1="9" x2="9" y2="15"/>
+                            </svg>
+                            表格视图
+                        </button>
+                        <button class="view-btn" data-view="card">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="7" y="3" width="10" height="6" rx="1"/>
+                                <rect x="7" y="15" width="10" height="6" rx="1"/>
+                            </svg>
+                            卡片视图
+                        </button>
+                    </div>
+                    <div class="table-actions">
+                        <button class="btn-secondary" id="refreshBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23,4 23,10 17,10"/>
+                                <polyline points="1,20 1,14 7,14"/>
+                                <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+                            </svg>
+                            刷新
+                        </button>
+                        <button class="btn-secondary" id="sortBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 6h18"/>
+                                <path d="M7 12h10"/>
+                                <path d="M10 18h4"/>
+                            </svg>
+                            排序
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="table-container" id="tableView">
+                <table class="links-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" id="selectAllCheckbox" class="bulk-checkbox">
+                            </th>
+                            <th>Short Link</th>
+                            <th>Original Link</th>
+                            <th>QR Code</th>
+                            <th>Clicks</th>
+                            <th>Status</th>
+                            <th>Group</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="linksTableBody">
+                        <!-- 表格数据将通过JavaScript动态生成 -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="cards-container" id="cardView" style="display: none;">
+                <div class="cards-grid" id="cardsGrid">
+                    <!-- 卡片数据将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <div class="register-prompt">
+                <a href="#" id="registerPrompt">Register Now</a> to enjoy Unlimited History
+            </div>
+        </section>
+    </main>
+
+    <!-- 侧边工具栏 -->
+    <div class="sidebar-tools">
+        <button class="tool-btn" id="settingsBtn" title="Settings">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+        </button>
+        <button class="tool-btn" id="themeBtn" title="Dark Theme">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- 登录模态框 -->
+    <div class="modal-overlay" id="loginModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>登录到 Linkly</h3>
+                <button class="modal-close" id="closeLoginModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="loginEmail">邮箱</label>
+                        <input type="email" id="loginEmail" required placeholder="请输入您的邮箱">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">密码</label>
+                        <input type="password" id="loginPassword" required placeholder="请输入您的密码">
+                    </div>
+                    <button type="submit" class="btn-primary auth-btn">登录</button>
+                    <p class="auth-switch">
+                        还没有账户？ <a href="#" id="switchToRegister">立即注册</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 注册模态框 -->
+    <div class="modal-overlay" id="registerModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>注册 Linkly 账户</h3>
+                <button class="modal-close" id="closeRegisterModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="registerName">用户名</label>
+                        <input type="text" id="registerName" required placeholder="请输入用户名">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">邮箱</label>
+                        <input type="email" id="registerEmail" required placeholder="请输入您的邮箱">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">密码</label>
+                        <input type="password" id="registerPassword" required placeholder="请输入密码（至少6位）">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">确认密码</label>
+                        <input type="password" id="confirmPassword" required placeholder="请再次输入密码">
+                    </div>
+                    <button type="submit" class="btn-primary auth-btn">注册</button>
+                    <p class="auth-switch">
+                        已有账户？ <a href="#" id="switchToLogin">立即登录</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- QR码弹窗 -->
+    <div class="modal-overlay" id="qrModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>QR Code</h3>
+                <button class="modal-close" id="closeQrModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="qr-container">
+                    <canvas id="qrCanvas" width="200" height="200"></canvas>
+                </div>
+                <p class="qr-text">Scan to open link</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 链接编辑模态框 -->
+    <div class="modal-overlay" id="editLinkModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>编辑链接</h3>
+                <button class="modal-close" id="closeEditModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editLinkForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="editOriginalUrl">原始链接</label>
+                        <input type="url" id="editOriginalUrl" required placeholder="https://example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="editCustomAlias">自定义别名（可选）</label>
+                        <input type="text" id="editCustomAlias" placeholder="my-custom-link">
+                        <small>留空将使用随机生成的短链接</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="editStatus">状态</label>
+                        <select id="editStatus">
+                            <option value="Active">激活</option>
+                            <option value="Inactive">停用</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancelEdit">取消</button>
+                        <button type="submit" class="btn-primary">保存更改</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast通知 -->
+    <div class="toast" id="toast" style="display: none;">
+        <div class="toast-content">
+            <svg class="toast-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4"/>
+                <circle cx="12" cy="12" r="10"/>
+            </svg>
+            <span class="toast-message">Link copied to clipboard!</span>
+        </div>
+    </div>
+
+    <!-- 高级功能面板 -->
+    <div class="advanced-panel" id="advancedPanel" style="display: none;">
+        <div class="panel-header">
+            <h3>高级功能</h3>
+            <button class="panel-close" id="closeAdvancedPanel">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        <div class="panel-content">
+            <div class="feature-tabs">
+                <button class="tab-btn active" data-tab="analytics">分析</button>
+                <button class="tab-btn" data-tab="groups">分组</button>
+                <button class="tab-btn" data-tab="export">导出</button>
+            </div>
+            
+            <!-- 分析面板 -->
+            <div class="tab-content active" id="analyticsTab">
+                <div class="analytics-grid">
+                    <div class="stat-card">
+                        <h4>总点击数</h4>
+                        <span class="stat-number" id="totalClicks">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h4>活跃链接</h4>
+                        <span class="stat-number" id="activeLinks">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h4>今日点击</h4>
+                        <span class="stat-number" id="todayClicks">0</span>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="clicksChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+            
+            <!-- 分组面板 -->
+            <div class="tab-content" id="groupsTab">
+                <div class="group-actions">
+                    <button class="btn-primary" id="createGroupBtn">创建分组</button>
+                </div>
+                <div class="groups-list" id="groupsList">
+                    <!-- 分组列表将动态生成 -->
+                </div>
+            </div>
+            
+            <!-- 导出面板 -->
+            <div class="tab-content" id="exportTab">
+                <div class="export-options">
+                    <button class="btn-secondary" id="exportCsvBtn">导出为 CSV</button>
+                    <button class="btn-secondary" id="exportJsonBtn">导出为 JSON</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 浮动工具栏 -->
+    <div class="floating-toolbar" id="floatingToolbar">
+        <button class="toolbar-btn" id="advancedBtn" title="高级功能">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <line x1="9" y1="9" x2="15" y2="15"/>
+                <line x1="15" y1="9" x2="9" y2="15"/>
+            </svg>
+        </button>
+        <button class="toolbar-btn" id="searchBtn" title="搜索">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <path d="M21 21l-4.35-4.35"/>
+            </svg>
+        </button>
+        <button class="toolbar-btn" id="bulkActionsBtn" title="批量操作">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4"/>
+                <polyline points="9,11 12,14 15,11"/>
+                <line x1="12" y1="2" x2="12" y2="14"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- 搜索面板 -->
+    <div class="search-panel" id="searchPanel" style="display: none;">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="搜索链接..." class="search-input">
+            <div class="search-filters">
+                <select id="statusFilter">
+                    <option value="">所有状态</option>
+                    <option value="Active">激活</option>
+                    <option value="Inactive">停用</option>
+                </select>
+                <select id="dateFilter">
+                    <option value="">所有时间</option>
+                    <option value="today">今天</option>
+                    <option value="week">本周</option>
+                    <option value="month">本月</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- 批量操作面板 -->
+    <div class="bulk-panel" id="bulkPanel" style="display: none;">
+        <div class="bulk-actions">
+            <button class="btn-secondary" id="selectAllBtn">全选</button>
+            <button class="btn-secondary" id="bulkActivateBtn">批量激活</button>
+            <button class="btn-secondary" id="bulkDeactivateBtn">批量停用</button>
+            <button class="btn-danger" id="bulkDeleteBtn">批量删除</button>
+        </div>
+        <div class="selected-count">
+            已选择 <span id="selectedCount">0</span> 个链接
+        </div>
+    </div>
+
+    <!-- 创建分组模态框 -->
+    <div class="modal-overlay" id="createGroupModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>创建新分组</h3>
+                <button class="modal-close" id="closeCreateGroupModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="createGroupForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="groupName">分组名称</label>
+                        <input type="text" id="groupName" required placeholder="输入分组名称">
+                    </div>
+                    <div class="form-group">
+                        <label for="groupColor">分组颜色</label>
+                        <div class="color-picker">
+                            <input type="color" id="groupColor" value="#3b82f6">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancelCreateGroup">取消</button>
+                        <button type="submit" class="btn-primary">创建分组</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script src="user-system.js"></script>
+    <script src="advanced-features.js"></script>
+    <script src="advanced-controller.js"></script>
+</body>
+</html>

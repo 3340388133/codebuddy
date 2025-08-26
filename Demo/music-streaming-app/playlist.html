@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的播放列表 - MusicStream</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .playlist-header {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(238, 90, 36, 0.3));
+            border-radius: 20px;
+            margin: 2rem;
+            backdrop-filter: blur(20px);
+        }
+        
+        .playlist-cover {
+            width: 250px;
+            height: 250px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .playlist-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        
+        .playlist-title {
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .playlist-description {
+            color: #b3b3b3;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .playlist-meta {
+            color: #b3b3b3;
+            font-size: 0.9rem;
+        }
+        
+        .create-playlist-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 1rem;
+        }
+        
+        .create-playlist-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .create-playlist-btn h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .create-playlist-btn p {
+            color: #b3b3b3;
+        }
+        
+        .playlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+        
+        .playlist-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .playlist-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .playlist-card-cover {
+            width: 100%;
+            height: 150px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .playlist-card h3 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .playlist-card p {
+            color: #b3b3b3;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 左侧导航栏 -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h1>🎵 MusicStream</h1>
+            </div>
+            
+            <div class="nav-section">
+                <a href="index.html" class="nav-item">
+                    <span class="nav-icon">🏠</span>
+                    <span>主页</span>
+                </a>
+                <a href="search.html" class="nav-item">
+                    <span class="nav-icon">🔍</span>
+                    <span>搜索</span>
+                </a>
+                <a href="library.html" class="nav-item active">
+                    <span class="nav-icon">📚</span>
+                    <span>个人库</span>
+                </a>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-item">
+                    <span class="nav-icon">➕</span>
+                    <span>创建播放列表</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">❤️</span>
+                    <span>喜欢的音乐</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 主内容区域 -->
+        <main class="main-content">
+            <!-- 播放列表头部 -->
+            <div class="playlist-header">
+                <div class="playlist-cover">🎵</div>
+                <div class="playlist-info">
+                    <div style="color: #b3b3b3; font-size: 0.9rem; margin-bottom: 0.5rem;">播放列表</div>
+                    <h1 class="playlist-title">我喜欢的音乐</h1>
+                    <div class="playlist-description">你最喜欢的歌曲都在这里</div>
+                    <div class="playlist-meta">用户 • 25首歌曲</div>
+                </div>
+            </div>
+
+            <!-- 播放列表操作 -->
+            <div class="album-actions" style="padding: 2rem;">
+                <button class="play-all-btn" style="background: #1db954; color: white; border: none; padding: 1rem 2rem; border-radius: 50px; font-size: 1.1rem; font-weight: bold; cursor: pointer;">
+                    <span>▶️</span>
+                    播放
+                </button>
+                <button style="background: none; border: none; color: #b3b3b3; font-size: 1.5rem; cursor: pointer;">🔀</button>
+            </div>
+
+            <!-- 创建新播放列表 -->
+            <div class="create-playlist-btn" onclick="createPlaylist()">
+                <h3>➕ 创建新播放列表</h3>
+                <p>收集你喜欢的歌曲</p>
+            </div>
+
+            <!-- 播放列表网格 -->
+            <div class="playlist-grid">
+                <div class="playlist-card" onclick="window.location.href='playlist.html'">
+                    <div class="playlist-card-cover" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24);">❤️</div>
+                    <h3>我喜欢的音乐</h3>
+                    <p>25首歌曲</p>
+                </div>
+
+                <div class="playlist-card">
+                    <div class="playlist-card-cover" style="background: linear-gradient(135deg, #4ecdc4, #44a08d);">🎸</div>
+                    <h3>摇滚精选</h3>
+                    <p>18首歌曲</p>
+                </div>
+
+                <div class="playlist-card">
+                    <div class="playlist-card-cover" style="background: linear-gradient(135deg, #a8edea, #fed6e3);">🎧</div>
+                    <h3>电子音乐</h3>
+                    <p>32首歌曲</p>
+                </div>
+
+                <div class="playlist-card">
+                    <div class="playlist-card-cover" style="background: linear-gradient(135deg, #ffecd2, #fcb69f);">🎷</div>
+                    <h3>爵士夜晚</h3>
+                    <p>15首歌曲</p>
+                </div>
+
+                <div class="playlist-card">
+                    <div class="playlist-card-cover" style="background: linear-gradient(135deg, #667eea, #764ba2);">🎼</div>
+                    <h3>古典音乐</h3>
+                    <p>22首歌曲</p>
+                </div>
+
+                <div class="playlist-card">
+                    <div class="playlist-card-cover" style="background: linear-gradient(135deg, #f093fb, #f5576c);">💃</div>
+                    <h3>舞曲热门</h3>
+                    <p>28首歌曲</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- 底部播放器 -->
+        <div class="player">
+            <div class="player-left">
+                <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=60&h=60&fit=crop" alt="当前播放" class="current-song-image">
+                <div class="current-song-info">
+                    <div class="song-title">Blinding Lights</div>
+                    <div class="song-artist">The Weeknd</div>
+                </div>
+                <button class="like-btn">💚</button>
+            </div>
+            
+            <div class="player-center">
+                <div class="player-controls">
+                    <button class="control-btn">⏮️</button>
+                    <button class="play-btn">⏸️</button>
+                    <button class="control-btn">⏭️</button>
+                </div>
+                <div class="progress-container">
+                    <span class="time">1:23</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 40%;"></div>
+                    </div>
+                    <span class="time">3:20</span>
+                </div>
+            </div>
+            
+            <div class="player-right">
+                <button class="control-btn">🔀</button>
+                <button class="control-btn">🔊</button>
+                <div class="volume-bar">
+                    <div class="volume-progress" style="width: 70%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createPlaylist() {
+            const name = prompt('请输入播放列表名称:');
+            if (name) {
+                alert(`播放列表 "${name}" 创建成功！`);
+                // 这里可以添加实际的创建逻辑
+            }
+        }
+
+        // 播放按钮控制
+        const playBtn = document.querySelector('.play-btn');
+        playBtn.addEventListener('click', function() {
+            this.textContent = this.textContent === '▶️' ? '⏸️' : '▶️';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!-- 将此内容添加到 index.html 的 </body> 标签前 -->
+
+    <!-- 高级功能工具栏 -->
+    <div class="advanced-toolbar">
+        <button class="tool-btn" onclick="showGroupsManager()" title="分组管理">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+        </button>
+        
+        <button class="tool-btn" onclick="exportAllData()" title="导出所有数据">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7,10 12,15 17,10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+        </button>
+        
+        <button class="tool-btn" onclick="showAnalyticsDashboard()" title="分析面板">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- 链接统计模态框 -->
+    <div class="modal-overlay" id="statsModal" style="display: none;">
+        <div class="modal-content large-modal">
+            <div class="modal-header">
+                <h3>链接统计分析</h3>
+                <button class="modal-close" id="closeStatsModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalClicks">0</div>
+                        <div class="stat-label">总点击数</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="todayClicks">0</div>
+                        <div class="stat-label">今日点击</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="avgDaily">0</div>
+                        <div class="stat-label">日均点击</div>
+                    </div>
+                </div>
+                
+                <div class="stats-charts">
+                    <div class="chart-section">
+                        <h4>设备类型分布</h4>
+                        <div class="device-stats" id="deviceStats"></div>
+                    </div>
+                    
+                    <div class="chart-section">
+                        <h4>浏览器分布</h4>
+                        <div class="browser-stats" id="browserStats"></div>
+                    </div>
+                    
+                    <div class="chart-section">
+                        <h4>每日点击趋势</h4>
+                        <div class="daily-chart" id="dailyChart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 分组管理模态框 -->
+    <div class="modal-overlay" id="groupsModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>分组管理</h3>
+                <button class="modal-close" id="closeGroupsModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="groups-list" id="groupsList"></div>
+                
+                <form id="createGroupForm" class="create-group-form">
+                    <h4>创建新分组</h4>
+                    <div class="form-group">
+                        <label for="groupName">分组名称</label>
+                        <input type="text" id="groupName" required placeholder="输入分组名称">
+                    </div>
+                    <div class="form-group">
+                        <label for="groupColor">分组颜色</label>
+                        <input type="color" id="groupColor" value="#3b82f6">
+                    </div>
+                    <div class="form-group">
+                        <label for="groupDescription">描述</label>
+                        <textarea id="groupDescription" placeholder="分组描述（可选）"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">创建分组</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="script.js"></script>
+    <script src="user-system.js"></script>
+    <script src="advanced-features.js"></script>

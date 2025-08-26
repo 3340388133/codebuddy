@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索结果 - MusicStream</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="search-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 左侧导航栏 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/>
+                    </svg>
+                    <span class="logo-text">MusicStream</span>
+                </div>
+            </div>
+
+            <nav class="nav-section">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            </svg>
+                            <span>主页</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="#" class="nav-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.35-4.35"/>
+                            </svg>
+                            <span>搜索</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+                            </svg>
+                            <span>个人库</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="nav-section">
+                <div class="section-header">
+                    <h3>播放列表</h3>
+                    <button class="create-playlist-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                    </button>
+                </div>
+                <ul class="playlist-list">
+                    <li class="playlist-item">
+                        <a href="#" class="playlist-link">我喜欢的音乐</a>
+                    </li>
+                    <li class="playlist-item">
+                        <a href="#" class="playlist-link">最近播放</a>
+                    </li>
+                    <li class="playlist-item">
+                        <a href="#" class="playlist-link">放松音乐</a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- 主内容区域 -->
+        <main class="main-content">
+            <div class="search-page-header">
+                <div class="search-container">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" class="search-input" placeholder="搜索歌曲、艺术家或专辑..." value="jazz">
+                </div>
+            </div>
+
+            <!-- 搜索结果 -->
+            <div class="search-results">
+                <div class="result-section">
+                    <h2 class="section-title">最佳匹配</h2>
+                    <div class="best-match">
+                        <div class="best-match-cover">
+                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop" alt="Jazz Classics">
+                        </div>
+                        <div class="best-match-info">
+                            <span class="match-type">播放列表</span>
+                            <h3 class="match-title">Jazz Classics</h3>
+                            <p class="match-description">经典爵士乐合集，包含最受欢迎的爵士乐曲目</p>
+                            <div class="match-stats">
+                                <span>125首歌曲</span>
+                                <span>•</span>
+                                <span>8小时32分钟</span>
+                            </div>
+                        </div>
+                        <button class="play-button">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5,3 19,12 5,21"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="result-section">
+                    <h2 class="section-title">歌曲</h2>
+                    <div class="songs-results">
+                        <div class="song-item">
+                            <div class="song-cover">
+                                <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=60&h=60&fit=crop" alt="Take Five">
+                            </div>
+                            <div class="song-info">
+                                <h4 class="song-title">Take Five</h4>
+                                <p class="song-artist">Dave Brubeck Quartet</p>
+                            </div>
+                            <div class="song-duration">5:24</div>
+                            <div class="song-actions">
+                                <button class="like-btn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                </button>
+                                <button class="more-btn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="1"/>
+                                        <circle cx="12" cy="5" r="1"/>
+                                        <circle cx="12" cy="19" r="1"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="song-item">
+                            <div class="song-cover">
+                                <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=60&h=60&fit=crop" alt="Blue in Green">
+                            </div>
+                            <div class="song-info">
+                                <h4 class="song-title">Blue in Green</h4>
+                                <p class="song-artist">Miles Davis</p>
+                            </div>
+                            <div class="song-duration">5:37</div>
+                            <div class="song-actions">
+                                <button class="like-btn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                </button>
+                                <button class="more-btn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="1"/>
+                                        <circle cx="12" cy="5" r="1"/>
+                                        <circle cx="12" cy="19" r="1"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="song-item">
+                            <div class="song-cover">
+                                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=60&h=60&fit=crop" alt="Autumn Leaves">
+                            </div>
+                            <div class="song-info">
+                                <h4 class="song-title">Autumn Leaves</h4>
+                                <p class="song-artist">Bill Evans Trio</p>
+                            </div>
+                            <div class="song-duration">6:42</div>
+                            <div class="song-actions">
+                                <button class="like-btn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                </button>
+                                <button class="more-btn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="1"/>
+                                        <circle cx="12" cy="5" r="1"/>
+                                        <circle cx="12" cy="19" r="1"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-section">
+                    <h2 class="section-title">艺术家</h2>
+                    <div class="artists-grid">
+                        <div class="artist-card">
+                            <div class="artist-avatar">
+                                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=150&h=150&fit=crop" alt="Miles Davis">
+                            </div>
+                            <h4 class="artist-name">Miles Davis</h4>
+                            <p class="artist-type">艺术家</p>
+                        </div>
+
+                        <div class="artist-card">
+                            <div class="artist-avatar">
+                                <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=150&h=150&fit=crop" alt="John Coltrane">
+                            </div>
+                            <h4 class="artist-name">John Coltrane</h4>
+                            <p class="artist-type">艺术家</p>
+                        </div>
+
+                        <div class="artist-card">
+                            <div class="artist-avatar">
+                                <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=150&h=150&fit=crop" alt="Bill Evans">
+                            </div>
+                            <h4 class="artist-name">Bill Evans</h4>
+                            <p class="artist-type">艺术家</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-section">
+                    <h2 class="section-title">专辑</h2>
+                    <div class="albums-grid">
+                        <div class="album-card">
+                            <div class="album-cover">
+                                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=180&h=180&fit=crop" alt="Kind of Blue">
+                                <button class="album-play-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="5,3 19,12 5,21"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="album-info">
+                                <h4 class="album-title">Kind of Blue</h4>
+                                <p class="album-artist">Miles Davis</p>
+                            </div>
+                        </div>
+
+                        <div class="album-card">
+                            <div class="album-cover">
+                                <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=180&h=180&fit=crop" alt="A Love Supreme">
+                                <button class="album-play-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="5,3 19,12 5,21"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="album-info">
+                                <h4 class="album-title">A Love Supreme</h4>
+                                <p class="album-artist">John Coltrane</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 右侧热门排行榜 -->
+        <aside class="top-charts">
+            <h2 class="charts-title">热门排行</h2>
+            <div class="chart-list">
+                <div class="chart-item">
+                    <div class="chart-cover">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=60&h=60&fit=crop" alt="Take Five">
+                    </div>
+                    <div class="chart-info">
+                        <h4 class="chart-song">Take Five</h4>
+                        <p class="chart-artist">Dave Brubeck</p>
+                        <p class="chart-duration">5:24</p>
+                    </div>
+                    <div class="chart-actions">
+                        <button class="like-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- 底部播放器控制栏 -->
+    <div class="player-bar">
+        <div class="player-content">
+            <div class="now-playing">
+                <div class="track-cover">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=60&h=60&fit=crop" alt="Current Track">
+                </div>
+                <div class="track-info">
+                    <h4 class="track-title">Take Five</h4>
+                    <p class="track-artist">Dave Brubeck Quartet</p>
+                </div>
+            </div>
+
+            <div class="player-controls">
+                <div class="control-buttons">
+                    <button class="control-btn shuffle-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16,3 21,3 21,8"/>
+                            <line x1="4" y1="20" x2="21" y2="3"/>
+                            <polyline points="21,16 21,21 16,21"/>
+                            <line x1="15" y1="15" x2="21" y2="21"/>
+                            <line x1="4" y1="4" x2="9" y2="9"/>
+                        </svg>
+                    </button>
+                    <button class="control-btn prev-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="19,20 9,12 19,4"/>
+                            <line x1="5" y1="19" x2="5" y2="5"/>
+                        </svg>
+                    </button>
+                    <button class="control-btn play-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="5,3 19,12 5,21"/>
+                        </svg>
+                    </button>
+                    <button class="control-btn next-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5,4 15,12 5,20"/>
+                            <line x1="19" y1="5" x2="19" y2="19"/>
+                        </svg>
+                    </button>
+                    <button class="control-btn repeat-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="17,1 21,5 17,9"/>
+                            <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                            <polyline points="7,23 3,19 7,15"/>
+                            <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill">
+                            <div class="progress-handle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="volume-controls">
+                <button class="volume-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                    </svg>
+                </button>
+                <div class="volume-slider">
+                    <div class="volume-bar">
+                        <div class="volume-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

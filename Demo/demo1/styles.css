@@ -1,0 +1,431 @@
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #121212;
+    color: white;
+    overflow: hidden;
+}
+
+/* 容器 */
+.container {
+    width: 428px;
+    height: 926px;
+    position: relative;
+    background: #121212;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* 背景专辑图片 */
+.background-albums {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 465px;
+    overflow: hidden;
+}
+
+.albums-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+    opacity: 0.8;
+}
+
+.placeholder-bg {
+    background: linear-gradient(135deg, 
+        #1DB954 0%, 
+        #1ed760 25%, 
+        #191414 50%, 
+        #1DB954 75%, 
+        #191414 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    position: relative;
+}
+
+.placeholder-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(29, 185, 84, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(30, 215, 96, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.1) 0%, transparent 30%);
+    mix-blend-mode: overlay;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 状态栏 */
+.status-bar {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 100;
+}
+
+.time {
+    font-size: 17px;
+    font-weight: 600;
+    color: white;
+}
+
+.status-icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.signal-icon {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 12px;
+}
+
+.signal-bar {
+    width: 3px;
+    background: white;
+    border-radius: 1px;
+}
+
+.signal-bar:nth-child(1) { height: 3px; }
+.signal-bar:nth-child(2) { height: 6px; }
+.signal-bar:nth-child(3) { height: 9px; }
+.signal-bar:nth-child(4) { height: 12px; }
+
+.battery-icon {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.battery-body {
+    width: 24px;
+    height: 12px;
+    border: 1px solid white;
+    border-radius: 2px;
+    position: relative;
+    background: transparent;
+}
+
+.battery-level {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    right: 1px;
+    bottom: 1px;
+    background: white;
+    border-radius: 1px;
+    width: 80%;
+}
+
+.battery-tip {
+    width: 2px;
+    height: 6px;
+    background: white;
+    border-radius: 0 1px 1px 0;
+}
+
+/* 主要内容区域 */
+.main-content {
+    position: absolute;
+    top: 401px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 46px;
+    z-index: 10;
+}
+
+/* Logo */
+.logo-container {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+}
+
+.logo-container svg {
+    fill: #121212;
+}
+
+/* 标题部分 */
+.title-section {
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.main-title {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: white;
+    text-align: center;
+}
+
+/* 注册按钮 */
+.signup-btn {
+    width: 337px;
+    height: 49px;
+    background: #1DB954;
+    border: none;
+    border-radius: 45px;
+    color: black;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Avenir Next', sans-serif;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: all 0.2s ease;
+}
+
+.signup-btn:hover {
+    background: #1ed760;
+    transform: scale(1.02);
+}
+
+.signup-btn:active {
+    transform: scale(0.98);
+}
+
+/* 社交登录按钮 */
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.social-btn {
+    width: 337px;
+    height: 49px;
+    background: #121212;
+    border: 0.6px solid white;
+    border-radius: 45px;
+    color: #F5F5F5;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Avenir Next', sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+}
+
+.social-btn:active {
+    transform: scale(0.98);
+}
+
+.social-btn svg {
+    flex-shrink: 0;
+}
+
+/* 登录部分 */
+.login-section {
+    margin-top: 12px;
+}
+
+.login-link {
+    background: none;
+    border: none;
+    color: #F5F5F5;
+    font-size: 17px;
+    font-weight: 700;
+    font-family: 'Avenir Next', sans-serif;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.login-link:hover {
+    color: #1DB954;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+    .container {
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    .main-content {
+        padding: 0 24px;
+    }
+    
+    .signup-btn,
+    .social-btn {
+        width: 100%;
+        max-width: 337px;
+    }
+    
+    .main-title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 375px) {
+    .main-title {
+        font-size: 22px;
+    }
+    
+    .signup-btn,
+    .social-btn {
+        height: 44px;
+        font-size: 15px;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-content > * {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.logo-container {
+    animation-delay: 0.1s;
+}
+
+.title-section {
+    animation-delay: 0.2s;
+}
+
+.signup-btn {
+    animation-delay: 0.3s;
+}
+
+.social-buttons {
+    animation-delay: 0.4s;
+}
+
+.login-section {
+    animation-delay: 0.5s;
+}
+
+/* 加载动画 */
+.container {
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 按钮波纹效果 */
+.signup-btn,
+.social-btn,
+.login-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.signup-btn::before,
+.social-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+.signup-btn:active::before,
+.social-btn:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* 深色主题优化 */
+@media (prefers-color-scheme: dark) {
+    .container {
+        background: #000;
+    }
+    
+    .social-btn {
+        background: #000;
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+    .social-btn {
+        border-width: 2px;
+    }
+    
+    .login-link {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+    }
+}
+
+/* 减少动画模式 */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

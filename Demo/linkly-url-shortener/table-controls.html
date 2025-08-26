@@ -1,0 +1,37 @@
+<!-- 搜索和过滤控件 -->
+<div class="table-controls">
+    <div class="search-box">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <input type="text" placeholder="搜索链接..." onkeyup="searchLinks(this.value)">
+    </div>
+    <select class="filter-select" onchange="filterLinks(this.value)">
+        <option value="all">所有状态</option>
+        <option value="Active">激活</option>
+        <option value="Inactive">停用</option>
+    </select>
+    <button class="bulk-btn" onclick="exportLinks()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7,10 12,15 17,10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        导出数据
+    </button>
+</div>
+
+<!-- 批量操作 -->
+<div class="bulk-actions" style="display: none;">
+    <div class="bulk-select">
+        <input type="checkbox" id="selectAll" onchange="toggleSelectAll(this)">
+        <label for="selectAll">全选</label>
+        <span class="selected-count">已选择 0 个链接</span>
+    </div>
+    <div class="bulk-actions-buttons">
+        <button class="bulk-btn" onclick="bulkActivateLinks()">批量激活</button>
+        <button class="bulk-btn" onclick="bulkDeactivateLinks()">批量停用</button>
+        <button class="bulk-btn danger" onclick="bulkDeleteLinks()">批量删除</button>
+    </div>
+</div>

@@ -1,0 +1,436 @@
+/* 高级功能样式 */
+
+/* 大型模态框 */
+.large-modal {
+    max-width: 800px;
+    width: 95%;
+}
+
+/* 统计概览 */
+.stats-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* 图表区域 */
+.stats-charts {
+    display: grid;
+    gap: 2rem;
+}
+
+.chart-section {
+    background: rgba(30, 41, 59, 0.3);
+    border: 1px solid rgba(51, 65, 85, 0.3);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+.chart-section h4 {
+    color: #f8fafc;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+/* 设备和浏览器统计 */
+.device-stats,
+.browser-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.stat-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stat-label {
+    min-width: 80px;
+    color: #cbd5e1;
+    font-size: 0.875rem;
+}
+
+.stat-progress {
+    flex: 1;
+    height: 8px;
+    background: rgba(51, 65, 85, 0.5);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    transition: width 0.3s ease;
+}
+
+.stat-value {
+    min-width: 40px;
+    text-align: right;
+    color: #94a3b8;
+    font-size: 0.875rem;
+}
+
+/* 每日图表 */
+.daily-chart {
+    display: flex;
+    align-items: end;
+    gap: 4px;
+    height: 120px;
+    padding: 1rem 0;
+}
+
+.daily-bar {
+    flex: 1;
+    background: linear-gradient(to top, #3b82f6, #60a5fa);
+    border-radius: 2px 2px 0 0;
+    min-height: 4px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.daily-bar:hover {
+    background: linear-gradient(to top, #1d4ed8, #3b82f6);
+    transform: scaleY(1.1);
+}
+
+.daily-bar::after {
+    content: attr(data-value);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.daily-bar:hover::after {
+    opacity: 1;
+}
+
+/* 分组管理 */
+.groups-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.group-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(30, 41, 59, 0.3);
+    border: 1px solid rgba(51, 65, 85, 0.3);
+    border-radius: 0.5rem;
+}
+
+.group-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.group-info {
+    flex: 1;
+}
+
+.group-name {
+    color: #f8fafc;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.group-description {
+    color: #94a3b8;
+    font-size: 0.875rem;
+}
+
+.group-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.group-action-btn {
+    background: rgba(51, 65, 85, 0.3);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    color: #cbd5e1;
+    padding: 0.375rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.group-action-btn:hover {
+    background: rgba(51, 65, 85, 0.5);
+    color: #f8fafc;
+}
+
+.group-action-btn.delete:hover {
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+}
+
+/* 创建分组表单 */
+.create-group-form {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(51, 65, 85, 0.3);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+.create-group-form h4 {
+    color: #f8fafc;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+/* 链接预览卡片 */
+.link-preview-card {
+    background: rgba(30, 41, 59, 0.3);
+    border: 1px solid rgba(51, 65, 85, 0.3);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.preview-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: rgba(51, 65, 85, 0.3);
+}
+
+.preview-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.preview-content {
+    padding: 1.5rem;
+}
+
+.preview-content h4 {
+    color: #f8fafc;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.preview-content p {
+    color: #94a3b8;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.preview-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.preview-meta img {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+}
+
+.preview-meta span {
+    color: #60a5fa;
+    font-size: 0.875rem;
+}
+
+/* 快速选项 */
+.quick-options {
+    margin: 1.5rem 0;
+}
+
+.quick-options h4 {
+    color: #f8fafc;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.quick-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+.quick-buttons button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+/* 高级工具栏 */
+.advanced-toolbar {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 100;
+}
+
+.advanced-toolbar .tool-btn {
+    background: rgba(30, 41, 59, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    color: #cbd5e1;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.advanced-toolbar .tool-btn:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+    color: #60a5fa;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* 链接状态指示器 */
+.link-status-indicators {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.status-indicator.protected {
+    background: #f59e0b;
+}
+
+.status-indicator.expiring {
+    background: #ef4444;
+}
+
+.status-indicator.grouped {
+    background: #8b5cf6;
+}
+
+/* 批量操作增强 */
+.bulk-actions.enhanced {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.6) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .large-modal {
+        width: 98%;
+        margin: 1rem;
+    }
+    
+    .stats-overview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .quick-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .advanced-toolbar {
+        right: 1rem;
+        bottom: 1rem;
+    }
+    
+    .daily-chart {
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-overview {
+        grid-template-columns: 1fr;
+    }
+    
+    .group-item {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .group-actions {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chart-section,
+.group-item,
+.link-preview-card {
+    animation: fadeInUp 0.3s ease;
+}
+
+/* 加载状态 */
+.loading-skeleton {
+    background: linear-gradient(90deg, rgba(51, 65, 85, 0.3) 25%, rgba(71, 85, 105, 0.5) 50%, rgba(51, 65, 85, 0.3) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* 成功状态指示 */
+.success-indicator {
+    color: #22c55e;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "path": "c:\\Users\\86152\\codebuddy\\Demo\\music-streaming-app",
+  "desc": "This is a music streaming application with features such as audio playback, playlist management, and a responsive user interface.",
+  "id": "03e03e60b3df4bb8b9c8e5aeff4604aa",
+  "data": {
+    "spaceKey": "03e03e60b3df4bb8b9c8e5aeff4604aa",
+    "connections": {
+      "webIDE": "https://03e03e60b3df4bb8b9c8e5aeff4604aa.ap-singapore.cloudstudio.club",
+      "preview": "https://03e03e60b3df4bb8b9c8e5aeff4604aa--{port}.ap-singapore.cloudstudio.club",
+      "api": "https://03e03e60b3df4bb8b9c8e5aeff4604aa--api.ap-singapore.cloudstudio.club",
+      "pty": "https://03e03e60b3df4bb8b9c8e5aeff4604aa--pty.ap-singapore.cloudstudio.club"
+    }
+  },
+  "config": {
+    "api": "https://03e03e60b3df4bb8b9c8e5aeff4604aa--api.ap-singapore.cloudstudio.club",
+    "pty": "https://03e03e60b3df4bb8b9c8e5aeff4604aa--pty.ap-singapore.cloudstudio.club",
+    "region": "ap-shanghai",
+    "spaceKey": "03e03e60b3df4bb8b9c8e5aeff4604aa"
+  }
+}
